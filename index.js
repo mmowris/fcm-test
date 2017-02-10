@@ -1,16 +1,13 @@
-var admin = require('firebase-admin'),
-	serviceaccount = require('./key.json'),
+var firebase = require('firebase-admin'),
+	account = require('./key.json'),
 	request = require('request');
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceaccount),
-  databaseURL: "https://mmdh-57486.firebaseio.com"
-});
+console.log("key",account);
 
 // Initialize the app with a service account, granting admin privileges
 firebase.initializeApp({
-  credential: firebase.credential.cert(serviceAccount),
-  databaseURL: "https://<your database>.firebaseio.com/"
+  credential: firebase.credential.cert(account),
+  databaseURL: process.env.DB_URL
 });
 ref = firebase.database().ref();
 
