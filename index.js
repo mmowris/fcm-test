@@ -38,7 +38,7 @@ function sendNotificationToUser(username, message, onSuccess) {
     },
     body: JSON.stringify({
       notification: {
-        title: message
+        body: message
       },
       to : '/topics/user_'+username
     })
